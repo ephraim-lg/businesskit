@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Media | Stop Renting Your Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- BRANDING COLORS --- */
+        :root {
+            --primary-red: #E31E24;
+            --deep-black: #000000;
+            --white: #FFFFFF;
+            --off-white: #F9F9F9;
+            --text-gray: #1a1a1a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-gray);
+            background-color: var(--white);
+        }
+
+        /* --- HERO & TIMER --- */
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: var(--deep-black);
+            color: var(--white);
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .highlight { color: var(--primary-red); }
+
+        .timer-container {
+            display: inline-flex;
+            gap: 15px;
+            margin-top: 25px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--primary-red);
+        }
+        .timer-block { text-align: center; }
+        .timer-value { display: block; font-size: 2rem; font-weight: 900; color: var(--primary-red); }
+        .timer-label { font-size: 0.7rem; text-transform: uppercase; }
+
+        /* --- CONTENT WRAPPER --- */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        p { margin-bottom: 20px; font-size: 1.1rem; }
+        
+        h2 { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 2.2rem; 
+            margin: 40px 0 20px; 
+            color: var(--deep-black); 
+            text-transform: uppercase;
+        }
+
+        .story-box {
+            background: var(--off-white);
+            padding: 35px;
+            border-left: 10px solid var(--primary-red);
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        .math-box {
+            background: #fff0f0;
+            padding: 25px;
+            border: 1px dashed var(--primary-red);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .benefit-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .benefit-list li::before {
+            content: "🚀 ";
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing-section {
+            background: var(--off-white);
+            padding: 60px 20px;
+        }
+
+        .pricing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid var(--deep-black);
+        }
+
+        .package-card.popular {
+            border-color: var(--primary-red);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(227, 30, 36, 0.2);
+        }
+
+        .price-tag {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--deep-black);
+            margin: 15px 0;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .package-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .package-card li::before { content: "✓ "; color: var(--primary-red); font-weight: bold; }
+
+        /* --- CTAs --- */
+        .cta-btn {
+            display: block;
+            background: var(--primary-red);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 6px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover { background: var(--deep-black); transform: translateY(-3px); }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .benefit-list { grid-template-columns: 1fr; }
+            .package-card.popular { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/260964576875" class="floating-cta">Chat on WhatsApp</a>
+
+    <section class="hero">
+        <div class="container" style="padding:0;">
+            <h1>Stop Paying Agencies to Do What You Could Do in <span class="highlight">20 Minutes</span></h1>
+            <p style="font-size: 1.4rem;">Keep 40,000+ Kwacha in your business instead of sending it to agencies.</p>
+            
+            <div class="timer-container">
+                <div class="timer-block"><span class="timer-value" id="h">00</span><span class="timer-label">Hours</span></div>
+                <div class="timer-block"><span class="timer-value" id="m">00</span><span class="timer-label">Mins</span></div>
+                <div class="timer-block"><span class="timer-value" id="s">00</span><span class="timer-label">Secs</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <p><strong>Here's a question that might sting a little:</strong></p>
+        <p>How much did you pay last month for someone else to post on your Facebook? To make a quick video? To run an ad that maybe brought in customers?</p>
+        <p>Now multiply that by 12 months. <strong>Ouch, right?</strong></p>
+        <p>But here's the really painful part: You probably waited days (or weeks) for that content. You sent revisions back and forth. You crossed your fingers hoping they "got" your business. And then... you paid them again next month to do it all over.</p>
+        
+        <h2>Let Me Tell You About Sarah</h2>
+        <div class="story-box">
+            <p>Sarah owns a small boutique here in town. Last year, she was paying a "social media manager" 3,000 kwacha every month. The girl was nice. The posts looked... fine. But Sarah had zero control.</p>
+            <p>Want to announce a flash sale today? "Sorry, I'm booked until Thursday."</p>
+            <p>Sarah was spending 36,000 kwacha a year and still couldn't move at the speed of her own business.</p>
+            <p><strong>Then she tried something different.</strong> She invested once in the right tools and training. Now? She creates a promotion graphic in 15 minutes while drinking her morning coffee. She edits customer testimonial videos during lunch.</p>
+            <p>Same business. Same Sarah. But now she's got 35,000+ kwacha back in her pocket and moves 10x faster.</p>
+        </div>
+
+        <h2>"But I'm Not Tech-Savvy..."</h2>
+        <p>Yeah, neither was Sarah. And honestly? That's exactly what agencies want you to believe. They want you thinking this stuff is so complicated that you need to keep paying them forever.</p>
+        <p><strong>The truth?</strong> If you can use Facebook, you can use Canva. If you can take a video on your phone, you can edit it in CapCut. We're not talking about rocket science here. We're talking about drag-and-drop. Click here, type there, boom—you've got content.</p>
+
+        <div class="math-box">
+            <h3>Let's Talk Real Numbers</h3>
+            <ul>
+                <li>2,000-5,000 kwacha/month for Social Media Management</li>
+                <li>1,000-2,000 kwacha per project for graphics/videos</li>
+                <li>2,000-4,000 kwacha/month for Ads management</li>
+            </ul>
+            <p><strong>Total: 40,000-100,000 kwacha disappearing every year.</strong> Imagine keeping all of that.</p>
+        </div>
+
+        <h2>Here's What Changes When You Take Control</h2>
+        <ul class="benefit-list">
+            <li><strong>Speed:</strong> Post in the same hour, not the same week.</li>
+            <li><strong>Money:</strong> Keep 40,000+ kwacha in your pocket.</li>
+            <li><strong>Testing:</strong> Try multiple messages without asking permission.</li>
+            <li><strong>Confidence:</strong> Know exactly what's working because YOU run it.</li>
+            <li><strong>Freedom:</strong> Never wait for someone else's schedule again.</li>
+        </ul>
+    </div>
+
+    <section class="pricing-section" id="pricing">
+        <h2 style="text-align: center;">Choose Your Business Growth Toolkit</h2>
+        <p style="text-align: center; margin-bottom: 40px;">One-time investment. Lifetime skills.</p>
+        
+        <div class="pricing-grid">
+            <div class="package-card">
+                <h3>📦 STARTER KIT</h3>
+                <div class="price-tag">K1,497</div>
+                <p>Perfect for essentials.</p>
+                <ul>
+                    <li>CapCut Pro (12 months)</li>
+                    <li>Facebook Ads Training</li>
+                    <li>30 Ready-Made Templates</li>
+                    <li>Facebook Ads Cheat Sheet</li>
+                </ul>
+                <a href="https://wa.me/260964576875?text=I%20want%20the%20Starter%20Kit" class="cta-btn">Get Started</a>
+            </div>
+
+            <div class="package-card popular">
+                <div style="color:var(--primary-red); font-weight:bold; font-size: 0.8rem;">⭐ MOST POPULAR</div>
+                <h3>🎯 COMPLETE KIT</h3>
+                <div class="price-tag">K1,997</div>
+                <p>Everything to never pay monthly fees again.</p>
+                <ul>
+                    <li>Everything in Starter Kit</li>
+                    <li>Canva Pro (12 months)</li>
+                    <li>Advanced Facebook Ads Training</li>
+                    <li>50+ Professional Templates</li>
+                    <li>30-Day Content Calendar</li>
+                    <li>Private Support Group</li>
+                </ul>
+                <a href="https://wa.me/260964576875?text=I%20want%20the%20Complete%20Kit" class="cta-btn">Claim Best Value</a>
+            </div>
+
+            <div class="package-card">
+                <h3>👑 PREMIUM KIT</h3>
+                <div class="price-tag">K2,997</div>
+                <p>VIP Experience & Strategy.</p>
+                <ul>
+                    <li>Everything in Complete Kit</li>
+                    <li>3x "Done-With-You" Sessions</li>
+                    <li>Personalized 90-Day Strategy</li>
+                    <li>Priority WhatsApp Support</li>
+                </ul>
+                <a href="https://wa.me/260964576875?text=I%20want%20the%20Premium%20Kit" class="cta-btn">Get VIP Access</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2>"Okay, But What If I Mess Up?"</h2>
+        <p>You will. A little bit. At first. But when YOU run the show, you can fix it in five minutes. You can try again immediately. Messing up when it costs you 20 minutes is way better than messing up when it costs you 3,000 kwacha and two weeks of waiting.</p>
+
+        <h2>Two Roads From Here</h2>
+        <p><strong>Road #1:</strong> Keep doing what you're doing. Keep paying monthly. Twelve months from now, add up what you spent and realize it could've paid for new inventory or an actual vacation.</p>
+        <p><strong>Road #2:</strong> Choose your kit right now. Spend a few hours this week learning tools that'll serve you for life. Take control. Move fast. Keep your money.</p>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <p class="highlight" style="font-weight: 800; font-size: 0.9rem;">🔥 LIMITED TIME LAUNCH PRICING FOR THE FIRST 50 OWNERS</p>
+            <a href="#pricing" class="cta-btn" style="display:inline-block; padding: 20px 60px;">I'm Ready to Take Control</a>
+        </div>
+    </div>
+
+    <footer style="background: var(--deep-black); color: white; padding: 60px 20px; text-align: center;">
+        <p>&copy; 2026 The Great Media Advertising Agency</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Stop paying rent on your business growth. Own it.</p>
+    </footer>
+
+    <script>
+        // Standard 24h urgency timer
+        var countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("h").innerHTML = hours;
+            document.getElementById("m").innerHTML = minutes;
+            document.getElementById("s").innerHTML = seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
